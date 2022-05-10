@@ -30,10 +30,10 @@ def register():
         length = input("Enter password length: ")
         userIn = userIn.lower()
         if "l" in userIn or "n" in userIn or "s" in userIn:
-            userIn = passGen("l" in userIn, "n" in userIn, "s" in userIn, length)
+            password = passGen("l" in userIn, "n" in userIn, "s" in userIn, length)
         else:
             print("Invalid input, generating password with letters, numbers and symbols of 16 characters length.")
-            userIn = passGen(True, True, True, 16)
+            password = passGen(True, True, True, 16)
     else:
         password = userIn
 

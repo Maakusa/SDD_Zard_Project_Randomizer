@@ -1,4 +1,4 @@
-file = open("FriendsData.txt", 'a+')
+file = open("accounts.txt", 'a+')
 
 def create_a_file():
     global file
@@ -24,7 +24,7 @@ def create_a_file():
 
     file.close()
 def display_file_contents():
-    file = open("FriendsData.txt", 'r')
+    file = open("accounts.txt", 'r')
     details = file.readlines()
     counter = 0
 

@@ -23,14 +23,14 @@ def register():
     username = input("Please enter a username: ")
     password = ""
 
-    userIn = input("Either enter a password or leave blank to generate a randomized password:")
+    userIn = input("Either enter a password or leave blank to generate a randomized password: ")
 
     if userIn == "":
         userIn = input("Enter a key: l = letter, n = number, s = symbol (ie: lns for letters numbers and symbols): ")
         length = input("Enter password length: ")
         userIn = userIn.lower()
         if "l" in userIn or "n" in userIn or "s" in userIn:
-            password = passGen("l" in userIn, "n" in userIn, "s" in userIn, length)
+            password = passGen("l" in userIn, "n" in userIn, "s" in userIn, int(length))
         else:
             print("Invalid input, generating password with letters, numbers and symbols of 16 characters length.")
             password = passGen(True, True, True, 16)
@@ -45,7 +45,16 @@ def passGen(randLet, randNum, randSym, len):
 
     genPass = ""
 
-    if (randLet and randNum) or (randNum and randSym) or (randSym and randLet):
+    if randLet and randNum and randSym:
+        for i in range(len):
+            r = randint(1, 3)
+            if r == 1:
+                genPass += genRandLet()
+            elif r == 2:
+                genPass += str(randint(0, 9))
+            else:
+                genPass += genRandSym()
+    elif (randLet and randNum) or (randNum and randSym) or (randSym and randLet):
         if randLet and randNum:
             for i in range(len):
                 r = randint(1, 2)
@@ -67,16 +76,6 @@ def passGen(randLet, randNum, randSym, len):
                     genPass += genRandSym()
                 else:
                     genPass += str(randint(0,9))
-
-    elif randLet and randNum and randSym:
-        for i in range(len):
-            r = randint(1, 3)
-            if r == 1:
-                genPass += genRandLet()
-            elif r == 2:
-                genPass += str(randint(0, 9))
-            else:
-                genPass += genRandSym()
     else:
         if randLet:
             for i in range(len):

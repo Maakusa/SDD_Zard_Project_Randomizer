@@ -42,6 +42,9 @@ def register():
 
     print("Username: ", username)
     print("Password: ", password)
+    accountFile.write(username, password, "\n")
+    usernameFile.write(username + " ")
+    passwordFile.write(password + " ")
 
 def passGen(randLet, randNum, randSym, len):
     # Generates a random password based on the choice of symbols numbers or letters and the length

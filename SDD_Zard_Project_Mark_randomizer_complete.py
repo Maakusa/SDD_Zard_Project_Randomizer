@@ -1,8 +1,11 @@
 from random import randint
 
 
-x = True
-file = open("accounts.txt", 'a+')
+x = True # flag for mainLoop
+accountFile = open("accounts.txt", 'a+')
+usernameFile = open("usernames.txt", 'a+')
+passwordFile = open("passwords.txt", 'a+')
+
 def choice():
     # kinda pointless ngl
 
